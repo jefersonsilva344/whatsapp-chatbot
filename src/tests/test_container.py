@@ -30,7 +30,9 @@ def container():
 @patch("container.Migration")
 @patch("container.DatabaseConnection")
 @patch("container.WhatsAppBot")
+@patch("container.Responder")
 def test_iniciar_cria_todas_dependencias(
+    mock_responder,
     mock_bot,
     mock_database,
     mock_migration,
@@ -127,7 +129,9 @@ def test_iniciar_cria_todas_dependencias(
 @patch("container.Migration")
 @patch("container.DatabaseConnection")
 @patch("container.WhatsAppBot")
+@patch("container.Responder")
 def test_iniciar_executa_migration_e_inicia_bot(
+    mock_responder,
     mock_bot,
     mock_database,
     mock_migration,
@@ -184,7 +188,9 @@ def test_iniciar_executa_migration_e_inicia_bot(
 @patch("container.Migration")
 @patch("container.DatabaseConnection")
 @patch("container.WhatsAppBot")
+@patch("container.Responder")
 def test_monitor_recebe_dependencias_corretas(
+    mock_responder,
     mock_bot,
     mock_database,
     mock_migration,
@@ -240,7 +246,9 @@ def test_executar_sem_container_iniciado():
 @patch("container.Migration")
 @patch("container.DatabaseConnection")
 @patch("container.WhatsAppBot")
+@patch("container.Responder")
 def test_executar_inicia_monitor(
+    mock_responder,
     mock_bot,
     mock_database,
     mock_migration,
@@ -290,7 +298,9 @@ def test_fechar_sem_recursos():
 @patch("container.Migration")
 @patch("container.DatabaseConnection")
 @patch("container.WhatsAppBot")
+@patch("container.Responder")
 def test_fechar_fecha_bot_e_banco(
+    mock_responder,
     mock_bot,
     mock_database,
     mock_migration,
