@@ -1,4 +1,4 @@
-from selenium import webdriver
+﻿from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
@@ -11,7 +11,7 @@ from config import (
     WHATSAPP_URL
 )
 
-from selectors import SIDEBAR
+from whatsapp_selectors import SIDEBAR
 from logger import logger
 
 from bot.profile_manager import ProfileManager
@@ -42,10 +42,10 @@ class WhatsAppBot:
         prepara todos os componentes do bot.
         """
 
-        # Configurações do Chrome
+        # ConfiguraÃ§Ãµes do Chrome
         options = Options()
 
-        # Mantém a sessão salva (evita ler QR Code toda vez)
+        # MantÃ©m a sessÃ£o salva (evita ler QR Code toda vez)
         options.add_argument(
             f"--user-data-dir={PROFILE_DIR}"
         )
@@ -61,7 +61,7 @@ class WhatsAppBot:
         # Maximiza a janela
         self.driver.maximize_window()
 
-        # Objeto responsável pelas esperas explícitas
+        # Objeto responsÃ¡vel pelas esperas explÃ­citas
         self.wait = WebDriverWait(
             self.driver,
             20
@@ -93,7 +93,7 @@ class WhatsAppBot:
     def _inicializar_componentes(self):
         """
         Cria todos os gerenciadores utilizados pelo bot.
-        Esse método é chamado apenas uma vez após o
+        Esse mÃ©todo Ã© chamado apenas uma vez apÃ³s o
         WhatsApp estar totalmente carregado.
         """
 
@@ -102,11 +102,11 @@ class WhatsAppBot:
             self.driver
         )
 
-        # Descobre o nome do usuário logado
+        # Descobre o nome do usuÃ¡rio logado
         self.meu_nome = self.profile.obter_nome()
 
         logger.info(
-            f"Usuário identificado: {self.meu_nome}"
+            f"UsuÃ¡rio identificado: {self.meu_nome}"
         )
 
         # Gerenciador de busca por conversas
@@ -114,12 +114,12 @@ class WhatsAppBot:
             self.driver
         )
 
-        # Responsável por enviar mensagens
+        # ResponsÃ¡vel por enviar mensagens
         self.sender = MessageSender(
             self.driver
         )
 
-        # Responsável por ler mensagens
+        # ResponsÃ¡vel por ler mensagens
         self.reader = MessageReader(
             self.driver,
             self.meu_nome
@@ -151,7 +151,7 @@ class WhatsAppBot:
             limite=15
         ):
         """
-        Lê as últimas mensagens da conversa atual.
+        LÃª as Ãºltimas mensagens da conversa atual.
         """
         return self.reader.ler(
             conversation_id,

@@ -1,4 +1,4 @@
-from selenium.webdriver.common.keys import Keys
+﻿from selenium.webdriver.common.keys import Keys
 
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from logger import logger
 
 from selector_manager import SelectorManager
-from selectors import MESSAGE_BOX
+from whatsapp_selectors import MESSAGE_BOX
 
 from utils import remover_unicode_incompativel
 

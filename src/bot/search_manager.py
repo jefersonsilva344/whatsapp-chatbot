@@ -1,4 +1,4 @@
-import time
+﻿import time
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException
 from logger import logger
 from selector_manager import SelectorManager
 
-from selectors import (
+from whatsapp_selectors import (
     SEARCH_BOX,
     CONTACT
 )
@@ -67,4 +67,3 @@ class SearchManager:
             logger.error(f"Erro ao abrir conversa:{erro}")
 
             return False
-        

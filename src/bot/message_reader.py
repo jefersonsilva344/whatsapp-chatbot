@@ -1,10 +1,10 @@
-import hashlib
+﻿import hashlib
 
 from selenium.common.exceptions import (
     StaleElementReferenceException
 )
 
-from selectors import (
+from whatsapp_selectors import (
     MESSAGE_LIST,
     MESSAGE_TEXT
 )

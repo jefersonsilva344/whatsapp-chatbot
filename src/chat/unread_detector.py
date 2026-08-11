@@ -1,10 +1,10 @@
-from selenium.common.exceptions import (
+﻿from selenium.common.exceptions import (
     StaleElementReferenceException,
 )
 
 from logger import logger
 
-from selectors import (
+from whatsapp_selectors import (
     CHAT_ITEMS,
     CHAT_NAME,
     UNREAD_BADGE,

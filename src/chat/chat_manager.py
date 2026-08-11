@@ -1,8 +1,8 @@
-from logger import logger
+﻿from logger import logger
 
 from selector_manager import SelectorManager
 
-from selectors import (
+from whatsapp_selectors import (
     CHAT_ITEMS,
     CHAT_CONTAINER,
     MESSAGE_BOX,

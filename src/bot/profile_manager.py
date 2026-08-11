@@ -1,9 +1,9 @@
-from selenium.webdriver.support.ui import WebDriverWait
+﻿from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from selector_manager import SelectorManager
 
-from selectors import (
+from whatsapp_selectors import (
     PROFILE_BUTTON,
     PROFILE_NAME,
     PROFILE_CLOSE
@@ -32,7 +32,7 @@ class ProfileManager:
 
         botao.click()
 
-        # Obtém o nome do usuário
+        # ObtÃ©m o nome do usuÃ¡rio
         nome = SelectorManager.encontrar(
             self.driver,
             PROFILE_NAME,
