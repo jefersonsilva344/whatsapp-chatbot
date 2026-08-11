@@ -1,138 +1,223 @@
-# 🤖 WhatsApp Chatbot
+# 🤖 WhatsApp Chatbot — Automação Inteligente de Atendimento
 
-Chatbot automatizado para atendimento via **WhatsApp Web**, desenvolvido em **Python**, utilizando **Selenium, SQLite, Pytest e integração com IA**.
+<p align="center">
+  <strong>Chatbot automatizado para atendimento via WhatsApp Web, desenvolvido em Python com arquitetura modular, persistência em SQLite, máquina de estados, testes automatizados e integração com Inteligência Artificial.</strong>
+</p>
 
-O projeto utiliza uma arquitetura modular com gerenciamento de sessões, máquina de estados, processamento de mensagens, persistência de dados, automação web e testes automatizados.
-
-[![Tests](https://github.com/jefersonsilva344/whatsapp-chatbot/actions/workflows/tests.yml/badge.svg)](https://github.com/jefersonsilva344/whatsapp-chatbot/actions)
-[![Python](https://img.shields.io/badge/Python-3.12%2B-blue?logo=python)](https://www.python.org/)
-[![Selenium](https://img.shields.io/badge/Selenium-Automation-green?logo=selenium)](https://www.selenium.dev/)
-[![Pytest](https://img.shields.io/badge/Pytest-89%20tests-orange?logo=pytest)](https://pytest.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Selenium-Automation-green?logo=selenium" alt="Selenium">
+  <img src="https://img.shields.io/badge/SQLite-Database-lightgrey?logo=sqlite" alt="SQLite">
+  <img src="https://img.shields.io/badge/Pytest-89%20tests-success?logo=pytest" alt="Pytest">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-CI-blue?logo=githubactions" alt="GitHub Actions">
+  <img src="https://img.shields.io/badge/OpenAI-API-black?logo=openai" alt="OpenAI">
+</p>
 
 ---
 
 ## 📌 Sobre o projeto
 
-O **WhatsApp Chatbot** é uma aplicação de automação de atendimento desenvolvida em Python para interagir com o WhatsApp Web.
+O **WhatsApp Chatbot** é uma aplicação de automação de atendimento desenvolvida em Python para interagir com o **WhatsApp Web** utilizando Selenium.
 
-O projeto foi estruturado para ir além de uma automação simples com Selenium, utilizando **separação de responsabilidades, injeção de dependências, persistência de dados, gerenciamento de sessões, máquina de estados, processamento de mensagens e testes automatizados**.
+O projeto foi construído com uma abordagem de engenharia de software, buscando superar o modelo tradicional de automação baseada em scripts e concentrando-se em:
 
-A arquitetura foi desenvolvida com foco em:
-
-* Modularidade
-* Baixo acoplamento
-* Testabilidade
-* Manutenibilidade
-* Evolução incremental
+* Arquitetura modular
 * Separação de responsabilidades
+* Baixo acoplamento
+* Injeção de dependências
+* Gerenciamento de sessões
+* Máquina de estados
+* Processamento e deduplicação de mensagens
+* Persistência de dados
+* Integração com Inteligência Artificial
+* Testes unitários e de integração
+* Integração contínua com GitHub Actions
+
+A aplicação foi estruturada para que os principais componentes possam ser desenvolvidos, testados e evoluídos de forma independente.
+
+### 🎯 Objetivo
+
+O objetivo principal é demonstrar a construção de uma aplicação real de automação de atendimento, combinando:
+
+**Automação Web + Backend Python + Banco de Dados + Arquitetura de Software + Testes + IA + CI/CD**
 
 ---
 
-## 🚀 Funcionalidades
+# 🚀 Principais funcionalidades
 
-### Automação
+## 💬 Automação do WhatsApp
 
-* Automação do WhatsApp Web
+* Automação do WhatsApp Web através do Selenium
 * Leitura de mensagens recebidas
 * Envio automático de respostas
-* Abertura de conversas
-* Identificação do usuário logado
-* Monitoramento de conversas
+* Abertura e gerenciamento de conversas
+* Detecção de conversas não lidas
+* Identificação do perfil utilizado pelo bot
+* Monitoramento contínuo de novas mensagens
 
-### Processamento
+## 🧠 Processamento de mensagens
 
-* Processamento de mensagens
-* Normalização de conteúdo
-* Identificação de intenções
-* Prevenção de mensagens duplicadas
-* Geração de respostas
-* Histórico de atendimento
+* Normalização de mensagens
+* Processamento centralizado
+* Controle de mensagens duplicadas
+* Persistência do histórico
+* Encaminhamento da mensagem para o fluxo adequado
+* Geração e envio de respostas
+* Registro das respostas enviadas
 
-### Gerenciamento
+## 🔄 Gerenciamento de conversas
 
-* Gerenciamento de conversas
+Cada conversa possui seu próprio contexto e ciclo de atendimento.
+
+A aplicação utiliza:
+
+* Gerenciamento de conversações
 * Gerenciamento de sessões
 * Máquina de estados
-* Fluxos automatizados de atendimento
-* Persistência de dados em SQLite
+* Fluxos de atendimento
+* Persistência do histórico
+* Controle do estado atual da interação
 
-### Inteligência Artificial
+Isso permite que o chatbot mantenha o contexto da conversa mesmo quando várias mensagens são processadas.
 
-* Integração com OpenAI API
-* Camada de serviço dedicada para IA
-* Memória de contexto
-* Sistema de prompts
-* Separação entre regras determinísticas e respostas baseadas em IA
+## 🤖 Inteligência Artificial
 
-### Qualidade
+O projeto possui uma camada dedicada à integração com IA.
 
-* Testes unitários
-* Testes de integração
-* Testes dos principais componentes
-* Execução automatizada com Pytest
-* CI utilizando GitHub Actions
+A arquitetura separa:
+
+* Serviço de IA
+* Memória/contexto
+* Prompts
+* Regras determinísticas
+* Intenções
+* Normalização
+* Respostas
+
+Essa abordagem permite utilizar regras programadas quando o comportamento precisa ser determinístico e IA quando existe necessidade de processamento mais flexível.
+
+## 🗄️ Persistência
+
+O projeto utiliza **SQLite** para armazenamento local.
+
+São armazenados dados relacionados a:
+
+* Mensagens
+* Conversas
+* Histórico de atendimento
+* Sessões
+* Estado das interações
+
+O acesso ao banco é abstraído através de **Repository Pattern**, evitando que a lógica de negócio fique diretamente acoplada ao SQL.
+
+## 🧪 Qualidade e testes
+
+A aplicação possui uma suíte automatizada utilizando **Pytest**.
+
+Atualmente:
+
+**89 testes automatizados passando. ✅**
+
+A cobertura de testes contempla componentes como:
+
+* Container
+* Conversation Manager
+* Conversation Repository
+* Flow Manager
+* Message Processor
+* Message Repository
+* Monitor
+* Session Manager
+* State Manager
+* Integração
+* Serviço de IA
+* Fluxo completo de atendimento
+
+Execução:
+
+```bash
+python -m pytest -v
+```
 
 ---
 
 # 🏗️ Arquitetura
 
-O processamento principal da aplicação segue aproximadamente o seguinte fluxo:
+O processamento principal da aplicação segue uma arquitetura modular:
 
 ```text
-                    WhatsApp Web
-                         │
-                         ▼
-                  ┌──────────────┐
-                  │ WhatsAppBot  │
-                  └──────┬───────┘
-                         │
-                         ▼
-                  ┌──────────────┐
-                  │   Monitor    │
-                  └──────┬───────┘
-                         │
-                         ▼
-               ┌──────────────────┐
-               │ MessageProcessor │
-               └────────┬─────────┘
-                        │
-              ┌─────────┴─────────┐
-              ▼                   ▼
-    ┌──────────────────┐   ┌──────────────────┐
-    │ConversationManager│   │ MessageRepository│
-    └─────────┬────────┘   └─────────┬────────┘
-              │                      │
-              ▼                      ▼
-    ┌──────────────────┐          SQLite
-    │ SessionManager   │
-    └─────────┬────────┘
-              │
-              ▼
-    ┌──────────────────┐
-    │  StateManager    │
-    └─────────┬────────┘
-              │
-              ▼
-    ┌──────────────────┐
-    │   FlowManager    │
-    └─────────┬────────┘
-              │
-        ┌─────┴─────┐
-        ▼           ▼
-   ┌─────────┐  ┌──────────────┐
-   │ Responder│  │ OpenAIService│
-   └────┬────┘  └──────┬───────┘
-        │              │
-        └──────┬───────┘
-               ▼
-          Resposta
-               │
-               ▼
-          WhatsApp Web
+                         WhatsApp Web
+                              │
+                              ▼
+                     ┌────────────────┐
+                     │  WhatsAppBot   │
+                     └───────┬────────┘
+                             │
+                             ▼
+                     ┌────────────────┐
+                     │    Monitor     │
+                     └───────┬────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │   MessageProcessor   │
+                  └──────────┬───────────┘
+                             │
+                  ┌──────────┴──────────┐
+                  ▼                     ▼
+       ┌────────────────────┐  ┌────────────────────┐
+       │ ConversationManager│  │ MessageRepository  │
+       └──────────┬─────────┘  └──────────┬─────────┘
+                  │                       │
+                  ▼                       ▼
+       ┌────────────────────┐          SQLite
+       │   SessionManager   │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │    StateManager    │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │    FlowManager     │
+       └──────────┬─────────┘
+                  │
+            ┌─────┴─────┐
+            ▼           ▼
+      ┌──────────┐ ┌────────────────┐
+      │ Responder│ │  OpenAIService │
+      └────┬─────┘ └───────┬────────┘
+           │               │
+           └───────┬───────┘
+                   ▼
+              ┌──────────┐
+              │ Resposta │
+              └────┬─────┘
+                   │
+                   ▼
+             WhatsApp Web
 ```
 
-Essa separação permite que cada componente tenha uma responsabilidade específica, facilitando testes, manutenção e evolução da aplicação.
+### 🔎 Responsabilidade dos principais componentes
+
+| Componente               | Responsabilidade                            |
+| ------------------------ | ------------------------------------------- |
+| `WhatsAppBot`            | Inicialização e controle da automação       |
+| `Monitor`                | Monitoramento das conversas e mensagens     |
+| `MessageProcessor`       | Orquestração do processamento das mensagens |
+| `ConversationManager`    | Gerenciamento das conversas                 |
+| `SessionManager`         | Controle das sessões                        |
+| `StateManager`           | Controle do estado atual                    |
+| `FlowManager`            | Execução dos fluxos de atendimento          |
+| `Responder`              | Aplicação de regras e geração de respostas  |
+| `OpenAIService`          | Integração com IA                           |
+| `MessageRepository`      | Persistência de mensagens                   |
+| `ConversationRepository` | Persistência de conversas                   |
+| `SQLite`                 | Armazenamento local                         |
+
+Essa divisão reduz o acoplamento entre automação, regras de negócio, persistência e serviços externos.
 
 ---
 
@@ -234,52 +319,82 @@ whatsapp-chatbot/
 
 # 🔄 Fluxo de atendimento
 
-O chatbot utiliza uma **máquina de estados** para controlar o andamento de cada conversa.
+O chatbot utiliza uma **máquina de estados** para controlar o ciclo de cada conversa.
 
-Exemplo de fluxo:
+Exemplo:
 
 ```text
 INICIO
-  │
-  ▼
+   │
+   ▼
 AGUARDANDO_NOME
-  │
-  ▼
+   │
+   ▼
 AGUARDANDO_SERVICO
-  │
-  ▼
+   │
+   ▼
 ORCAMENTO
-  │
-  ▼
+   │
+   ▼
 CONFIRMACAO
-  │
-  ▼
+   │
+   ▼
 FINALIZADO
 ```
 
-Cada estado determina quais informações devem ser coletadas e qual será o próximo comportamento do chatbot.
+Cada estado possui uma responsabilidade específica e determina quais informações devem ser coletadas e qual será a próxima etapa.
 
-Isso permite manter o contexto da conversa sem depender exclusivamente do conteúdo da última mensagem recebida.
+Isso evita que a aplicação dependa exclusivamente do conteúdo da última mensagem recebida.
+
+### Exemplo de atendimento
+
+```text
+Cliente
+   │
+   │ "Olá"
+   ▼
+INICIO
+   │
+   │ "Olá! Qual seu nome?"
+   ▼
+AGUARDANDO_NOME
+   │
+   │ "Jeferson"
+   ▼
+AGUARDANDO_SERVICO
+   │
+   │ "Preciso de instalação elétrica"
+   ▼
+ORCAMENTO
+   │
+   ▼
+CONFIRMACAO
+   │
+   ▼
+FINALIZADO
+```
 
 ---
 
-# 🧠 Integração com IA
+# 🧠 Integração com Inteligência Artificial
 
-A aplicação possui uma camada específica para integração com serviços de inteligência artificial:
+A integração com IA foi isolada em uma camada específica:
 
 ```text
 src/ia/
+│
 ├── memoria.py
 ├── openai_service.py
 └── prompt.py
 ```
 
-Essa separação mantém a integração com a IA desacoplada do restante da aplicação.
+Essa arquitetura evita que a implementação da IA fique espalhada pelo restante da aplicação.
 
-A aplicação também possui uma camada de resposta baseada em regras e intenções:
+Além disso, o projeto possui uma camada de respostas baseada em regras:
 
 ```text
 src/responder/
+│
 ├── intents.py
 ├── normalizador.py
 ├── regras.py
@@ -287,65 +402,110 @@ src/responder/
 └── respostas.py
 ```
 
-Essa abordagem permite combinar **regras determinísticas** com **respostas geradas por IA**, dependendo do contexto da interação.
+### Estratégia híbrida
 
-As credenciais são obtidas através de variáveis de ambiente e não são armazenadas no repositório.
+A aplicação pode combinar:
+
+```text
+Mensagem
+    │
+    ▼
+Normalização
+    │
+    ▼
+Identificação do contexto
+    │
+    ├───────────────┐
+    ▼               ▼
+Regras           IA
+    │               │
+    └───────┬───────┘
+            ▼
+         Resposta
+```
+
+Essa abordagem permite manter comportamentos críticos previsíveis através de regras determinísticas, enquanto utiliza IA para situações que exigem maior flexibilidade.
+
+As credenciais de serviços externos são obtidas através de variáveis de ambiente.
 
 ---
 
-# 🗄️ Persistência
+# 🗄️ Persistência de dados
 
-O projeto utiliza **SQLite** para armazenamento local.
+O projeto utiliza **SQLite** como banco de dados local.
 
-Entre os dados gerenciados estão:
-
-* Mensagens
-* Conversas
-* Histórico de atendimento
-* Informações relacionadas às sessões
-
-A camada de persistência utiliza repositories para separar o acesso ao banco da lógica de negócio.
-
-Exemplo:
+A comunicação com o banco é organizada através de repositories:
 
 ```text
 MessageProcessor
-      │
-      ▼
+       │
+       ▼
 MessageRepository
-      │
-      ▼
-SQLite
+       │
+       ▼
+     SQLite
 ```
 
-Os arquivos de banco de dados locais são ignorados pelo Git através do `.gitignore`.
+Essa abstração permite separar:
+
+**Regra de negócio → Repository → Banco de dados**
+
+Em vez de:
+
+**Regra de negócio → SQL diretamente**
+
+### Dados armazenados
+
+* Mensagens recebidas
+* Mensagens enviadas
+* Conversas
+* Histórico
+* Dados relacionados às sessões
+* Informações necessárias para controle do atendimento
 
 ---
 
-# 🧪 Testes
+# 🔐 Segurança
 
-O projeto possui uma suíte automatizada utilizando **Pytest**.
+Informações sensíveis não devem ser armazenadas no código-fonte.
 
-Os testes cobrem diferentes camadas da aplicação:
+O projeto utiliza variáveis de ambiente para configurações sensíveis, por exemplo:
 
-* Container
-* Conversation Manager
-* Conversation Repository
-* Flow Manager
-* Message Processor
-* Message Repository
-* Monitor
-* Session Manager
-* State Manager
-* Integração
-* Serviço de IA
-* Fluxo completo de atendimento
-
-### Executar os testes
-
-```bash
-python -m pytest -v
+```env
+OPENAI_API_KEY=sua_chave_aqui
 ```
+
+Arquivos de configuração e dados locais devem permanecer fora do controle de versão:
+
+```text
+.env
+venv/
+data/*.db
+data/*.sqlite
+data/chrome_profile/
+```
+
+### ⚠️ Importante
+
+O diretório `chrome_profile` pode conter informações relacionadas à sessão do navegador e autenticação do WhatsApp.
+
+Por isso, **nunca deve ser publicado no GitHub**.
+
+Também não devem ser versionados:
+
+* API Keys
+* Tokens
+* Senhas
+* Cookies
+* Credenciais
+* Sessões do WhatsApp
+* Dados pessoais de usuários
+
+---
+
+# 🧪 Testes automatizados
+
+O projeto possui uma suíte de testes construída com **Pytest**.
 
 ### Resultado atual
 
@@ -353,42 +513,103 @@ python -m pytest -v
 89 passed
 ```
 
-Os testes também são executados automaticamente através do **GitHub Actions** a cada alteração na branch `main` e em pull requests.
+### Execução local
+
+```bash
+python -m pytest -v
+```
+
+### Camadas testadas
+
+```text
+Tests
+ │
+ ├── Container
+ ├── Conversation Manager
+ ├── Conversation Repository
+ ├── Flow Manager
+ ├── Message Processor
+ ├── Message Repository
+ ├── Monitor
+ ├── Session Manager
+ ├── State Manager
+ ├── OpenAI Service
+ └── Integration
+```
+
+A utilização de testes automatizados reduz regressões e permite evoluir a arquitetura com maior segurança.
 
 ---
 
-# ⚙️ Tecnologias
+# 🔄 Integração Contínua
 
-| Tecnologia        | Utilização                    |
-| ----------------- | ----------------------------- |
-| Python            | Linguagem principal           |
-| Selenium          | Automação do WhatsApp Web     |
-| SQLite            | Persistência local            |
-| Pytest            | Testes automatizados          |
-| WebDriver Manager | Gerenciamento do ChromeDriver |
-| OpenAI API        | Integração com IA             |
-| Git               | Controle de versão            |
-| GitHub Actions    | Integração contínua           |
+O projeto utiliza **GitHub Actions** para automatizar a execução dos testes.
+
+Fluxo:
+
+```text
+       Git Push / Pull Request
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ GitHub Actions  │
+        └────────┬────────┘
+                 │
+                 ▼
+       Configuração do Python
+                 │
+                 ▼
+       Instalação das dependências
+                 │
+                 ▼
+             Pytest
+                 │
+                 ▼
+          89 testes
+                 │
+          ┌──────┴──────┐
+          ▼             ▼
+       Sucesso        Falha
+          │             │
+          ▼             ▼
+      Validação      Correção
+```
+
+O objetivo é detectar regressões automaticamente antes que alterações sejam incorporadas ao projeto.
 
 ---
 
-# ⚙️ Instalação
+# ⚙️ Tecnologias utilizadas
 
-## 1. Clone o repositório
+| Tecnologia            | Aplicação                              |
+| --------------------- | -------------------------------------- |
+| **Python**            | Desenvolvimento da aplicação           |
+| **Selenium**          | Automação do WhatsApp Web              |
+| **SQLite**            | Persistência local                     |
+| **Pytest**            | Testes automatizados                   |
+| **WebDriver Manager** | Gerenciamento do ChromeDriver          |
+| **OpenAI API**        | Integração com IA                      |
+| **python-dotenv**     | Gerenciamento de variáveis de ambiente |
+| **Git**               | Controle de versão                     |
+| **GitHub Actions**    | Integração contínua                    |
+
+---
+
+# 📦 Instalação
+
+## 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/jefersonsilva344/whatsapp-chatbot.git
-
 cd whatsapp-chatbot
 ```
 
-## 2. Crie o ambiente virtual
+## 2. Criar ambiente virtual
 
 ### Windows
 
 ```bash
 python -m venv venv
-
 venv\Scripts\activate
 ```
 
@@ -396,11 +617,10 @@ venv\Scripts\activate
 
 ```bash
 python3 -m venv venv
-
 source venv/bin/activate
 ```
 
-## 3. Instale as dependências
+## 3. Instalar dependências
 
 ```bash
 pip install -r requirements.txt
@@ -408,25 +628,17 @@ pip install -r requirements.txt
 
 ---
 
-# 🔐 Configuração
+# 🔧 Configuração
 
-Crie um arquivo `.env` local com as variáveis necessárias.
-
-Exemplo:
+Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 OPENAI_API_KEY=sua_chave_aqui
 ```
 
-Nunca publique:
+Nunca compartilhe ou versione esse arquivo.
 
-* API keys
-* Tokens
-* Credenciais
-* Sessões do WhatsApp
-* Arquivos `.env`
-
-no GitHub.
+O `.gitignore` deve impedir que credenciais e dados locais sejam enviados para o repositório.
 
 ---
 
@@ -438,102 +650,196 @@ Com o ambiente virtual ativado:
 python src/main.py
 ```
 
-O chatbot iniciará a automação do WhatsApp Web utilizando Selenium.
+A aplicação iniciará a automação do WhatsApp Web através do Selenium.
 
-Na primeira execução, será necessário realizar a autenticação no WhatsApp Web.
+Na primeira execução, poderá ser necessário autenticar o WhatsApp Web.
 
-A sessão do navegador pode ser persistida localmente para evitar autenticação repetida, dependendo da configuração utilizada pela aplicação.
+Dependendo da configuração utilizada pelo projeto, o perfil do navegador pode ser persistido localmente para evitar uma nova autenticação em cada execução.
 
 ---
 
-# ⚠️ Dados locais
+# 🧪 Executando os testes
 
-Os seguintes arquivos e diretórios são utilizados localmente e não devem ser versionados:
+Para executar toda a suíte:
 
-```text
-venv/
-.env
-data/*.db
-data/*.sqlite
-data/chrome_profile/
+```bash
+python -m pytest -v
 ```
 
-O diretório `chrome_profile` pode armazenar informações da sessão do navegador e, consequentemente, dados de autenticação do WhatsApp.
+Para executar um arquivo específico:
 
-Por segurança, esse diretório deve permanecer fora do GitHub.
-
----
-
-# 🔄 Integração Contínua
-
-O projeto utiliza **GitHub Actions** para executar automaticamente a suíte de testes.
-
-Fluxo:
-
-```text
-Push / Pull Request
-        │
-        ▼
-GitHub Actions
-        │
-        ▼
-Setup Python
-        │
-        ▼
-Instalação das dependências
-        │
-        ▼
-Pytest
-        │
-        ▼
-89 testes
-        │
-        ▼
-Build validado
+```bash
+python -m pytest src/tests/test_message_processor.py -v
 ```
 
-Isso ajuda a detectar regressões antes que novas alterações sejam incorporadas ao projeto.
+Para executar o teste de integração:
+
+```bash
+python -m pytest src/tests/test_integration.py -v
+```
 
 ---
 
-# 🎯 Objetivos técnicos
+Exemplo:
 
-O projeto foi desenvolvido com foco em:
+```text
+Cliente envia mensagem
+        ↓
+Monitor identifica conversa
+        ↓
+Mensagem é processada
+        ↓
+Mensagem é persistida
+        ↓
+Estado da conversa é consultado
+        ↓
+Fluxo é executado
+        ↓
+Resposta é gerada
+        ↓
+Resposta enviada pelo WhatsApp
+        ↓
+Histórico atualizado
+```
 
-* Arquitetura modular
+### Sugestão para o portfólio
+
+Adicionar:
+
+* GIF do chatbot respondendo
+* Screenshot do WhatsApp Web
+* Screenshot dos testes passando
+* Screenshot do GitHub Actions
+* Diagrama da arquitetura
+
+Isso permite que recrutadores e clientes entendam rapidamente o resultado do projeto.
+
+---
+
+# 🎯 Competências demonstradas
+
+Este projeto demonstra experiência prática em:
+
+### Backend
+
+* Desenvolvimento Python
+* Programação orientada a objetos
+* Modularização
+* Gerenciamento de dependências
+* Persistência de dados
+* Repository Pattern
+* Injeção de dependências
+
+### Automação
+
+* Selenium WebDriver
+* Automação de navegador
+* Localização de elementos
+* Leitura e envio de mensagens
+* Monitoramento de interfaces web
+
+### Arquitetura
+
 * Separação de responsabilidades
 * Baixo acoplamento
-* Injeção de dependências
-* Persistência de dados
-* Gerenciamento de estado
+* Máquina de estados
 * Gerenciamento de sessões
-* Automação web
-* Integração com IA
+* Fluxos de negócio
+* Componentização
+
+### Qualidade
+
 * Testes unitários
 * Testes de integração
-* Integração contínua
-* Manutenibilidade
-* Evolução incremental
+* Pytest
+* Testabilidade
+* Prevenção de regressões
+
+### IA
+
+* Integração com API de IA
+* Engenharia de prompts
+* Gerenciamento de contexto
+* Arquitetura híbrida entre regras e IA
+
+### DevOps
+
+* Git
+* GitHub
+* GitHub Actions
+* CI
+* Automação de testes
+
+---
+
+# 💼 Aplicações práticas
+
+A arquitetura desenvolvida pode ser adaptada para diferentes cenários de atendimento automatizado, como:
+
+* Atendimento comercial
+* Pré-vendas
+* Captação de leads
+* Agendamento de serviços
+* Orçamentos
+* Suporte inicial
+* Triagem de clientes
+* FAQ automatizado
+* Atendimento interno
+
+A máquina de estados permite adaptar os fluxos de acordo com o processo de negócio.
 
 ---
 
 # 📈 Possíveis evoluções
 
-Algumas melhorias planejadas para futuras versões:
+O projeto foi desenvolvido de forma incremental e possui espaço para evolução arquitetural.
 
-* Dashboard para monitoramento
-* Sistema de métricas
+### Próximas possibilidades
+
+* Dashboard de atendimento
+* Métricas de conversão
 * Logs estruturados
-* Dockerização
-* Banco de dados externo
-* API REST
-* Sistema de autenticação
-* Filas para processamento de mensagens
-* Melhorias na camada de IA
-* Deploy em ambiente cloud
 * Observabilidade
 * Monitoramento de erros
+* Dockerização
+* API REST
+* Banco de dados PostgreSQL
+* Sistema de autenticação
+* Filas para processamento assíncrono
+* Cache
+* Sistema de métricas
+* Deploy em cloud
+* Webhook/API oficial para integração com WhatsApp
 * Expansão dos fluxos de atendimento
+* Melhorias na camada de IA
+* Sistema de avaliação das respostas
+* Painel administrativo
+
+---
+
+# 🧩 Desafios técnicos abordados
+
+Durante o desenvolvimento, o projeto trabalhou com problemas comuns em sistemas de automação e atendimento:
+
+### Deduplicação de mensagens
+
+Mensagens recebidas podem ser processadas mais de uma vez. O sistema utiliza persistência e controle para evitar processamento duplicado.
+
+### Estado da conversa
+
+O chatbot precisa saber em qual etapa cada cliente está.
+
+Por isso, o estado é controlado através de uma máquina de estados.
+
+### Separação entre automação e negócio
+
+A lógica de atendimento não deve depender diretamente do Selenium.
+
+Por isso, a automação, o processamento, os fluxos e a persistência foram separados em módulos.
+
+### Testabilidade
+
+A arquitetura foi estruturada para permitir testes dos componentes sem depender constantemente da interface do WhatsApp Web.
 
 ---
 
@@ -541,12 +847,30 @@ Algumas melhorias planejadas para futuras versões:
 
 Este projeto foi desenvolvido para fins **educacionais, experimentais e de portfólio**.
 
-A utilização de automações no WhatsApp deve respeitar os termos de uso da plataforma e as regras aplicáveis ao envio de mensagens automatizadas.
+A utilização de automações no WhatsApp deve respeitar os termos de uso da plataforma, políticas aplicáveis e regras relacionadas ao envio de mensagens automatizadas.
+
+Para aplicações comerciais em produção, recomenda-se avaliar o uso das APIs oficiais e das soluções disponibilizadas pela Meta.
 
 ---
 
 # 👨‍💻 Autor
 
-**Jeferson Silva**
+## Jeferson Silva
 
-Projeto desenvolvido como parte do portfólio de desenvolvimento **Python, automação, arquitetura de software, testes automatizados e integração com IA**.
+Desenvolvedor com foco em **Python, automação, arquitetura de software, testes automatizados e integração com Inteligência Artificial**.
+
+Este projeto faz parte do meu portfólio e demonstra a aplicação prática de conceitos de desenvolvimento de software em uma solução de automação de atendimento.
+
+### 🔗 Projeto
+
+**GitHub:**
+
+https://github.com/jefersonsilva344/whatsapp-chatbot
+
+---
+
+## ⭐ Se este projeto foi útil
+
+Se você gostou da arquitetura ou encontrou este projeto através do meu portfólio, considere deixar uma ⭐ no repositório.
+
+Feedbacks, sugestões e contribuições são bem-vindos.
