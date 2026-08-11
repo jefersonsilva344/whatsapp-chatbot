@@ -1,0 +1,40 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# Perfil do Chrome / WhatsApp
+data/chrome_profile/
+
+# Banco de dados local
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Pytest
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
+
+# Arquivos auxiliares do SQLite
+data/*.db-shm
+data/*.db-wal
+
+# Windows
+desktop.ini
